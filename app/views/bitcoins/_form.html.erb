@@ -1,0 +1,10 @@
+<%= simple_form_for bitcoin, html: { class: "bitcoin form" } do |f| %>
+  <% if bitcoin.errors.any? %>
+    <div class="error-message">
+      <%= bitcoin.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :hash, input_html: { autofocus: true } %>
+  <%= f.submit class: "btn btn--secondary" %>
+<% end %>
