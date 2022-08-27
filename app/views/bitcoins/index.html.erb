@@ -1,0 +1,10 @@
+<main class="container">
+  <div class="header">
+    <h1>Bitcoins</h1>
+    <%= link_to "New bitcoin",
+                new_bitcoin_path,
+                class: "btn btn--primary" %>
+  </div>
+
+  <%= render @bitcoins %>
+</main>

@@ -1,0 +1,12 @@
+<div class="bitcoin">
+  <%= link_to bitcoin.hash, bitcoin_path(bitcoin) %>
+  <div class="bitcoin__actions">
+    <%= button_to "Delete",
+                  bitcoin_path(bitcoin),
+                  method: :delete,
+                  class: "btn btn--light" %>
+    <%= link_to "Edit",
+                edit_bitcoin_path(bitcoin),
+                class: "btn btn--light" %>
+  </div>
+</div>
