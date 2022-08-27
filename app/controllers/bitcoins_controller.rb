@@ -18,10 +18,6 @@ class BitcoinsController < ApplicationController
       b_arr = JSON.parse(response&.body || "{}")
       @bitcoin = Bitcoin.new(hash:"#{b_arr["hash"]}",prev_block:"#{b_arr["prev_block"]}",block_index:"#{b_arr["block_index"]}",time:"#{b_arr["time"]}",bits:"#{b_arr["bits"]}")
   
-      p "holaaaaa"
-      pp @bitcoin
-  
-      p "holaaaaa"
       if @bitcoin.save
         redirect_to bitcoins_path, notice: "Bitcoin was successfully created."
       else
