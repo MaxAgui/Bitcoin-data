@@ -1,0 +1,9 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to bitcoin"), bitcoin_path(@bitcoin) %>
+
+  <div class="header">
+    <h1>Edit bitcoin</h1>
+  </div>
+
+  <%= render "form", bitcoin: @bitcoin %>
+</main>
