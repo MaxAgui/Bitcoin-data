@@ -1,12 +1,18 @@
 <div class="bitcoin">
   <%= link_to bitcoin.hashb, bitcoin_path(bitcoin) %>
   <div class="bitcoin__actions">
-    <%= link_to "Edit",
-                edit_bitcoin_path(bitcoin),
+    <%= link_to "Toggle",
+                bitcoin_path(bitcoin),
                 class: "btn btn--light" %>
     <%= button_to "Delete",
                   bitcoin_path(bitcoin),
                   method: :delete,
                   class: "btn btn--light" %>
   </div>
+</div>
+<div>
+      <p>prev_block:<%= bitcoin.prev_block %></p>
+      <p>block_index:<%= bitcoin.block_index %></p>
+      <p>time:<%= bitcoin.time %></p>
+      <p>bits:<%= bitcoin.bits %></p>
 </div>
