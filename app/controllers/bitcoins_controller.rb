@@ -20,8 +20,8 @@ class BitcoinsController < ApplicationController
 
     if @bitcoin.save
       respond_to do |format|
-        format.html { redirect_to bitcoins_path, notice: "Bitcoin was successfully created." }
-        format.turbo_stream
+        format.html { redirect_to bitcoins_path, notice: "Hash added." }
+        format.turbo_stream { flash.now[:notice] = "Hash added." }
       end
     else
       render :new, status: :unprocessable_entity
@@ -42,8 +42,8 @@ class BitcoinsController < ApplicationController
   def destroy
     @bitcoin.destroy
     respond_to do |format|
-      format.html { redirect_to bitcoins_path, notice: "Bitcoin was successfully destroyed." }
-      format.turbo_stream
+      format.html { redirect_to bitcoins_path, notice: "Hash destroyed." }
+      format.turbo_stream { flash.now[:notice] = "Hash destroyed." }
     end
   end
 
