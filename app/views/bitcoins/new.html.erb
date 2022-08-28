@@ -5,5 +5,7 @@
     <h1>New hash</h1>
   </div>
 
-  <%= render "form", bitcoin: @bitcoin %>
+  <%= turbo_frame_tag @bitcoin do %>
+    <%= render "form", bitcoin: @bitcoin %>
+  <% end %>
 </main>

@@ -3,8 +3,13 @@
     <h1>Blockchain</h1>
     <%= link_to "New hash",
                 new_bitcoin_path,
-                class: "btn btn--primary" %>
+                class: "btn btn--primary",
+                data: { turbo_frame: dom_id(Bitcoin.new) } %>
   </div>
 
-  <%= render @bitcoins %>
+  <%= turbo_frame_tag Bitcoin.new %>
+
+  <%= turbo_frame_tag "bitcoins" do %>
+    <%= render @bitcoins %>
+  <% end %>
 </main>
