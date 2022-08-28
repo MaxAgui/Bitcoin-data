@@ -3,7 +3,7 @@ class BitcoinsController < ApplicationController
   before_action :set_bitcoin, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bitcoins = Bitcoin.all
+    @bitcoins = Bitcoin.ordered
   end
 
   def show
@@ -19,7 +19,10 @@ class BitcoinsController < ApplicationController
     @bitcoin = Bitcoin.new(hashb:"#{b_arr["hash"]}",prev_block:"#{b_arr["prev_block"]}",block_index:"#{b_arr["block_index"]}",time:"#{b_arr["time"]}",bits:"#{b_arr["bits"]}")
 
     if @bitcoin.save
-      redirect_to bitcoins_path, notice: "Bitcoin was successfully created."
+      respond_to do |format|
+        format.html { redirect_to bitcoins_path, notice: "Bitcoin was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -38,7 +41,10 @@ class BitcoinsController < ApplicationController
 
   def destroy
     @bitcoin.destroy
-    redirect_to bitcoins_path, notice: "Bitcoin was successfully destroyed."
+    respond_to do |format|
+      format.html { redirect_to bitcoins_path, notice: "Bitcoin was successfully destroyed." }
+      format.turbo_stream
+    end
   end
 
   private
