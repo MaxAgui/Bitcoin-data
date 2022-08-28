@@ -1,0 +1,2 @@
+<%= turbo_stream.prepend "bitcoins", partial: "bitcoins/bitcoin", locals: { bitcoin: @bitcoin } %>
+<%= turbo_stream.update Bitcoin.new, "" %>
