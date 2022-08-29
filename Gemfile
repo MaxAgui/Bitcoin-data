@@ -7,6 +7,8 @@ gem "simple_form", "~> 5.1.0"
 
 gem "httparty"
 
+gem "font-awesome-sass", "~> 6.1.2"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
 
