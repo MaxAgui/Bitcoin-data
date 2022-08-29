@@ -1,18 +1,21 @@
-<div class="bitcoin">
-  <%= link_to bitcoin.hashb, bitcoin_path(bitcoin) %>
-  <div class="bitcoin__actions">
-    <%= link_to "Toggle",
-                bitcoin_path(bitcoin),
-                class: "btn btn--light" %>
-    <%= button_to "Delete",
-                  bitcoin_path(bitcoin),
-                  method: :delete,
-                  class: "btn btn--light" %>
-  </div>
-</div>
-<div>
-      <p>prev_block:<%= bitcoin.prev_block %></p>
-      <p>block_index:<%= bitcoin.block_index %></p>
-      <p>time:<%= bitcoin.time %></p>
-      <p>bits:<%= bitcoin.bits %></p>
+<div data-controller="visibility">
+  <%= turbo_frame_tag bitcoin do %>
+    <div class="bitcoin">
+      <%= link_to bitcoin.hashb %>
+      <div class="bitcoin__actions">
+        <button data-action="visibility#toggleTargets" class="icontoggle"><i class="fa fa-arrow-circle-o-down"></i></button>
+        <%= button_to "Delete",
+                      bitcoin_path(bitcoin),
+                      method: :delete,
+                      form: { data: { turbo_confirm: "Are you sure?" } },
+                      class: "btn btn--light" %>
+      </div>
+    </div>
+    <div data-visibility-target="hideable" hidden>
+          <p>prev_block:<%= bitcoin.prev_block %></p>
+          <p>block_index:<%= bitcoin.block_index %></p>
+          <p>time:<%= bitcoin.time %></p>
+          <p>bits:<%= bitcoin.bits %></p>
+    </div>
+  <% end %>
 </div>
