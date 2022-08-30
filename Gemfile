@@ -9,6 +9,10 @@ gem "httparty"
 
 gem "font-awesome-sass", "~> 6.1.2"
 
+gem 'pagy', '~> 5.10'
+
+gem "bulma-rails", "~> 0.9.3"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
 
