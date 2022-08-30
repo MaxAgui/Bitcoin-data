@@ -1,3 +1,4 @@
+<%= turbo_frame_tag 'search', target: '_top' do %>
 <main class="container">
   <div class="header">
     <h1>Blockchain</h1>
@@ -6,11 +7,12 @@
                 class: "btn btn--primary",
                 data: { turbo_frame: dom_id(Bitcoin.new) } %>
   </div>
-  
-  <%== pagy_nav(@pagy) %>
+
+  <%= render PaginationComponent.new(results: @pagy) %>
   <%= turbo_frame_tag Bitcoin.new %>
 
   <%= turbo_frame_tag "bitcoins" do %>
     <%= render @bitcoins %>
   <% end %>
 </main>
+<% end %>

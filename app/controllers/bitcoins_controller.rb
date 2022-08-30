@@ -3,7 +3,7 @@ class BitcoinsController < ApplicationController
   before_action :set_bitcoin, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pagy ,@bitcoins = pagy(Bitcoin.ordered, items: 7)
+    @pagy ,@bitcoins = pagy(Bitcoin.ordered, items: 7,link_extra: 'data-turbo-frame="search"')
   end
 
   def show
