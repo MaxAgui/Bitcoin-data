@@ -13,6 +13,8 @@ gem 'pagy', '~> 5.10'
 
 gem "bulma-rails", "~> 0.9.3"
 
+gem "view_component", require: "view_component/engine"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
 
