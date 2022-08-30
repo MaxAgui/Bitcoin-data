@@ -3,7 +3,7 @@ class BitcoinsController < ApplicationController
   before_action :set_bitcoin, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bitcoins = Bitcoin.ordered
+    @pagy ,@bitcoins = pagy(Bitcoin.ordered, items: 7)
   end
 
   def show

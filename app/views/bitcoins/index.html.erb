@@ -6,7 +6,8 @@
                 class: "btn btn--primary",
                 data: { turbo_frame: dom_id(Bitcoin.new) } %>
   </div>
-
+  
+  <%== pagy_nav(@pagy) %>
   <%= turbo_frame_tag Bitcoin.new %>
 
   <%= turbo_frame_tag "bitcoins" do %>
