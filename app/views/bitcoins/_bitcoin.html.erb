@@ -11,11 +11,11 @@
                       class: "btn btn--light" %>
       </div>
     </div>
-    <div data-visibility-target="hideable" hidden>
-          <p>prev_block:<%= bitcoin.prev_block %></p>
-          <p>block_index:<%= bitcoin.block_index %></p>
-          <p>time:<%= bitcoin.time %></p>
-          <p>bits:<%= bitcoin.bits %></p>
+    <div data-visibility-target="hideable" class="info" hidden>
+          <p>prev_block: <%= bitcoin.prev_block %></p>
+          <p>block_index: <%= bitcoin.block_index %></p>
+          <p>time: <%= bitcoin.time %></p>
+          <p>bits: <%= bitcoin.bits %></p>
     </div>
   <% end %>
 </div>
