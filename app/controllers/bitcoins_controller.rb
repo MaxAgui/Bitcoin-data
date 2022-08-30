@@ -15,10 +15,10 @@ class BitcoinsController < ApplicationController
 
   def create
     response = HTTParty.get("https://blockchain.info/rawblock/#{bitcoin_params["hashb"]}")
-    b_arr = JSON.parse(response&.body || "{}")
+    b_arr = JSON.parse(response&.body)
     @bitcoin = Bitcoin.new(hashb:"#{b_arr["hash"]}",prev_block:"#{b_arr["prev_block"]}",block_index:"#{b_arr["block_index"]}",time:"#{b_arr["time"]}",bits:"#{b_arr["bits"]}")
 
-    if @bitcoin.save
+    if b_arr["error"]!="not-found-or-invalid-arg" && @bitcoin.save
       respond_to do |format|
         format.html { redirect_to bitcoins_path, notice: "Hash added." }
         format.turbo_stream { flash.now[:notice] = "Hash added." }
